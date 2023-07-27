@@ -1,0 +1,66 @@
+<html><head>
+    {% load static %}
+    <style>
+    #panel0 {
+        padding: 50px;
+        display: none;
+        text-align: center;
+        background-image: url("{% static 'images/level4box1.jpg' %}");
+        border: solid 1px;
+        border-color: rgb(249, 249, 249);
+        color: rgb(249, 245, 245);          
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        width: 50%;
+        margin-top: 10%;
+        font-size: 50px;
+        height: 40%;
+
+      }
+      
+</style>
+    
+    </head>
+        <body>
+            <h4>{{counts}}</h4>
+            <div id="panel0">Congratulations! <br> you won <br>  Your clicks is {{counts}}</div>
+
+            
+
+{% if flipid.0 == 'matched' %}
+<script>
+    var matched=new Audio('/static/audio/mixkit-wind-chimes-2014.wav')
+    $('#{{ flipid.1 }}').fadeOut()
+    $('#{{ flipid.2 }}').fadeOut()  
+    matched.play()
+
+</script>
+{% endif %}
+{% if flipid.0 == 'unmatched' %}
+<script>   
+var unmatched=new Audio('static/audio/mixkit-negative-guitar-tone-2324.wav')
+$(".card").flip(false)
+unmatched.play()
+</script>
+{% endif %}
+{% if msg %}
+
+<script>
+    $('#box').hide()
+    $('h4').hide()
+    $('#panel0').slideDown()
+    $('#timer').hide()
+    
+    
+</script>
+{% endif %}
+</body> 
+</html>
+
+
+
+
+
+
+
+
+  

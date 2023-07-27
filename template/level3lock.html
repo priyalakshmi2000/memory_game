@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+            <link rel="stylesheet" href=
+            "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    {% load static %}
+        <style>
+            body{
+            background-image: url("{% static '/images/level3lock.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height:auto;
+            width: 100%;
+            background-attachment: fixed
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row-justify-content-center">
+                <div class="col-12">
+                    <div class="alert alert-warning" role="alert" style="width: 1500px; height: 8%";><p style="font-family:Verdana, Geneva, Tahoma, sans-serif; color: rgb(217, 12, 12);"> Welcome {{user}}! Level 3
+                        <a href="/logout_views" style="margin-left: 79%;" ><button type="button" class="btn" style="background-color: orange;"> Logout <i span="icon" class="bi-person-x-fill"></i></button></a></p>
+                    </div>
+                </div> 
+            </div>
+            <div class="row justify-content-center">
+            <div class="col-6">
+                    
+                <div class="card" style="background-color:transparent; width:70%; height: 500px; margin-left: 10%;">
+                    <center><br><h3><p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"> LEVEL 3 has been locked<br>
+                    pay ₹50 to unlock</p></h3><br><br><br>
+                    
+                    <div id="pay">
+                        <button type="button" class="btn btn-dark" id="upi" style="width:50%"> UPI</button><br><br><br>
+                        <button type="button" class="btn btn-dark" id="credit" style="width:50%"> CREDIT CARD</button><br><br><br>
+                        <p> {{msg}} </p> <BR><BR>
+                        <a href="/main"> <button type="button" class="btn btn-secondary">BACK</button></a> 
+                    </div>
+                     
+                    </center>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>       
+        <script>
+            $(document).ready(function(){
+                $('#upi').click(function(){
+                    $.ajax({    
+                    url : '/upi',
+                    type : 'POST',
+                    
+                    success : function(response){
+                    $('#pay').html(response);
+                    }
+                    });
+                }); 
+            });
+            $(document).ready(function(){
+                $('#credit').click(function(){
+                    $.ajax({
+                    url : '/credit',
+                    type : 'POST',
+                    
+                    success : function(response){
+                    $('#pay').html(response);
+                    }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

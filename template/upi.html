@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <form action="/upi_check" method='POST'>
+            {%csrf_token%}
+            <label>Enter your upi</label>
+            <input type="password" class="form-control" name="upi"><br>
+            <button type="submit" class="btn btn dark"> PAY </button>
+    </form>
+    <p>{{msg}}</p>
+    <a href="/lock1"><button type="button" class="btn btn-primary"> BACK</button></a>
+    
+    </body>
+
+</html>

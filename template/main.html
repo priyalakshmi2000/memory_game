@@ -1,0 +1,232 @@
+<html>
+<title> main page</title>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href=
+    "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <style>
+    body{
+        background-image:url("{% static '/images/front.jpg' %}");    
+        background-size: cover;
+    }
+    
+        *{
+        padding:0;
+        margin:0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .flip  {
+height: 120px;
+width: 120px;
+margin: 0 auto;
+padding: 10;
+margin-top: 30%;
+} 
+.but img
+{
+    margin: 0 auto;
+    padding: 10;
+    margin-top: 30%;
+    margin-left: 20%;
+    width: 150px;
+    height: 170px;
+}
+.ins img
+{
+    margin: 0 auto;
+    padding: 10;
+    margin-left: 20%;
+    width: 150px;
+    height: 170px;
+}
+.ins .card{
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0 auto;
+    padding: 10;
+    margin-left: 20%;
+    width: 250px;
+    height: 200px;
+    background-color: rgb(22, 192, 234);
+    margin-top: 30%;
+    
+
+}
+
+
+    .flip img {
+width: 150px;
+height: 150px;
+} 
+
+</style>
+{% load static %}
+</head>
+<body>
+    
+    <div class="container-fluid">
+    <div class="row-justify-content-center">
+        <div class="col-12">
+            <div class="alert alert-dark" role="alert" style="width: 1500px; height: 8%";><p style="font-family:Verdana, Geneva, Tahoma, sans-serif; color: rgb(217, 12, 12);"> Welcome {{user}}!
+                <a href="/logout_views" style="margin-left: 82%;" ><button type="button" class="btn btn-primary"> Logout <i span="icon" class="bi-person-x-fill"></i></button></a></p>
+            </div>
+        </div> 
+    </div>
+    <hr>
+    
+
+    <div class="row justify-content-center">
+        <div class="col-2">
+            <div class="ins">
+                <div class="front">
+                <img src="https://cdn3.iconfinder.com/data/icons/letters-and-numbers-1/32/letter_F_red-256.png">
+                </div>
+                <div class="back" >
+                    <div class="card" style="background-color:rgb(233, 170, 92)">
+                        <div class="card-body " style="text-align: center;">
+                            <a href="/play" style="color:black; width: 50%;">LEVEL 1<i class="bi-joystick"> </i> </a><br>
+                            <a href="/level2" style="color:black; width: 50%;">LEVEL 2<i class="bi-joystick"> </i> </a><br>
+                            <a href="/lock1" style="color:black; width: 50%;">LEVEL 3<i class="bi-joystick"> </i> </a><br>
+                            <a href="/lock2" style="color:black; width: 50%;">LEVEL 4<i class="bi-joystick"> </i> </a><br>                          
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class="col-2">
+            <div class="ins">
+                <div class="front">
+                <img src="https://cdn3.iconfinder.com/data/icons/letters-and-numbers-1/32/letter_L_blue-256.png">
+                </div>
+                <div class="back" >
+                    <div class="card" style="background-color:rgb(166, 242, 53)">
+                        <div class="card-body " style="text-align: center;">
+                            <div class="leader1"><i span="icon" class="bi-gem">Level1</i></div>
+                            <div class="leader2"><i span="icon" class="bi-gem">Level2</i></div>
+                            <div class="leader3"><i span="icon" class="bi-gem">Level3</i></div>
+                            <div class="leader4"><i span="icon" class="bi-gem">Level4</i></div>                         
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>    
+           
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div id="leadership">
+        
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row justify-content-center">
+        <div class="col-2">
+            <div class="ins">
+                <div class="front">
+                <img src="https://cdn3.iconfinder.com/data/icons/letters-and-numbers-1/32/letter_I_blue-1024.png">
+                </div>
+                <div class="back">
+                <div class="card">
+                    <div class="card-body ">
+                        <I><center><U>INSTRUCTIONS</U></center><h5 style="margin-top: 20%; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">*Flip all the cards untill all cards are matched</h5></I>
+                        
+                        
+                    </div>
+                </div>
+                </div>
+                </div>
+        </div>
+        <div class="col-2">
+            <div class="but">
+                <a href="/play"><img src="https://cdn3.iconfinder.com/data/icons/letters-and-numbers-1/32/letter_P_red-256.png"></a>
+            </div>
+        </div>       
+    </div>
+    <hr>
+    <div class="row justify-content-center">
+        <div class="col-4">    
+            <center><h7 style="font-weight: bolder; color:rgb(234, 12, 130)">Click! P for play a game</h7></center>
+            <center><h7 style="font-weight: bolder;color:rgb(243, 152, 17)">Click! L for Leadership board</h7></center>
+        </div>
+    </div>
+    
+</div>
+    
+
+<script>
+    $(function(){
+        $(".flip").flip({
+        trigger: 'hover'
+        });
+        });
+    $(function(){
+        $(".ins").flip({
+        trigger: 'click'
+        });
+        });
+    $(".leader1").click(function(){
+        $.ajax({
+            url:'/leader1',
+            type:'POST',
+            success:function(response){
+                $('#leadership').html(response);
+            }
+        })
+    })
+    $(".leader2").click(function(){
+        $.ajax({
+            url:'/leader2',
+            type:'POST',
+            success:function(response){
+                $('#leadership').html(response);
+            }
+        })
+    })
+    $(".leader3").click(function(){
+        $.ajax({
+            url:'/leader3',
+            type:'POST',
+            success:function(response){
+                $('#leadership').html(response);
+            }
+        })
+    })
+    $(".leader4").click(function(){
+        $.ajax({
+            url:'/leader4',
+            type:'POST',
+            success:function(response){
+                $('#leadership').html(response);
+            }
+        })
+    })
+</script>
+    
+
+</body>
+</html>
+
+

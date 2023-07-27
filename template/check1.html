@@ -1,0 +1,68 @@
+<html><head>
+    {% load static %}
+    <style>
+    #panel {
+        padding: 50px;
+        display: none;
+        text-align: center;
+        background-image: url("{% static 'images/level2box.jpg' %}");
+        
+        border: solid 1px;
+        border-color: black;
+        color: rgb(249, 246, 246);          
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        width: 50%;
+        margin-top: 10%;
+        font-size: 50px;
+        height: 40%;
+
+      }
+      
+</style>
+    
+    </head>
+        <body>
+            <h4>{{counts}}</h4>
+            <div id="panel">Congratulations! <br> you won <br>  Your clicks is {{counts}}</div>
+
+            
+
+{% if flipid.0 == 'matched' %}
+<script>
+    var matched=new Audio('/static/audio/mixkit-wind-chimes-2014.wav')
+    $('#{{ flipid.1 }}').fadeOut()
+    $('#{{ flipid.2 }}').fadeOut()  
+    matched.play()
+
+</script>
+{% endif %}
+{% if flipid.0 == 'unmatched' %}
+<script>   
+var unmatched=new Audio('static/audio/mixkit-negative-guitar-tone-2324.wav')
+$(".card").flip(false)
+unmatched.play()
+</script>
+{% endif %}
+{% if msg %}
+<a href="/lock1"><button class="btn btn-dark" style="font-family: 
+'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"> next level</button></a>
+<script>
+    $('#box').hide()
+    $('h4').hide()
+    $('#panel').slideDown()
+    $('#timer').hide()
+    
+    
+</script>
+{% endif %}
+</body> 
+</html>
+
+
+
+
+
+
+
+
+  
